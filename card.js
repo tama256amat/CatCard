@@ -90,23 +90,23 @@ let cat1 = createcatCard(
   "たべる",
   "こまかいことをきにしない",
   "5500mw",
-  "https://pbs.twimg.com/profile_images/501759258665299968/3799Ffxy.jpeg"
+  "https://user-images.githubusercontent.com/91357435/149614989-605102aa-4ed5-4f59-93ba-de9b09bddbd3.jpg"
 );
 
 let cat2 = createcatCard(
   "モカさん",
-  "ねる",
+  "かくれる",
   "おどろきやすい",
   "6000mw",
-  "https://randomuser.me/api/portraits/women/76.jpg"
+  "https://user-images.githubusercontent.com/91357435/149615024-982646e4-abf5-4786-a5c0-c6ceae07d2a9.jpg"
 );
 
 let cat3 = createcatCard(
-  "コムギさん",
-  "のびる",
+  "モリさん",
+  "へんなかお",
   "ひとのそばにいるのがすき",
   "3000mw ",
-  "https://randomuser.me/api/portraits/med/men/93.jpg"
+  "https://user-images.githubusercontent.com/91357435/149615028-5fef919f-51ae-44d1-b1d1-47e39d2e0e1f.jpg"
 );
 
 profileDiv.append(cat1);
