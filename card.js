@@ -1,6 +1,6 @@
 // 外側
 
-function createcatCard(catName, job, personality, power, catUrl) {
+function createcatCard(catCard) {
   let containerDiv = document.createElement("div");
   containerDiv.classList.add(
     "bg-warning",
@@ -30,7 +30,7 @@ function createcatCard(catName, job, personality, power, catUrl) {
   leftInfo.classList.add("col-8", "py-3");
 
   let nameTitle = document.createElement("h4");
-  nameTitle.innerHTML = catName;
+  nameTitle.innerHTML = `${catCard.getFullName(catCard)}`;
 
   let p1Div = document.createElement("div");
   p1Div.classList.add("py-2");
@@ -39,15 +39,16 @@ function createcatCard(catName, job, personality, power, catUrl) {
   let p3Div = p1Div.cloneNode(true);
 
   let catJob = document.createElement("p");
-  catJob.innerHTML = "Job:" + "<br>" + job;
+  catJob.innerHTML = "Job:" + "<br>" + `${catCard.job}`;
   p1Div.append(catJob);
 
   let catPersonality = document.createElement("p");
-  catPersonality.innerHTML = "Personality :" + "<br>" + personality;
+  catPersonality.innerHTML =
+    "Personality :" + "<br>" + `${catCard.personality}`;
   p2Div.append(catPersonality);
 
   let catPower = document.createElement("p");
-  catPower.innerHTML = "Power :" + "<br>" + power;
+  catPower.innerHTML = "Power :" + "<br>" + `${catCard.power}`;
   p3Div.append(catPower);
 
   leftInfo.append(nameTitle);
@@ -70,7 +71,7 @@ function createcatCard(catName, job, personality, power, catUrl) {
 
   let profileImg = document.createElement("img");
   profileImg.classList.add("avatar");
-  profileImg.src = catUrl;
+  profileImg.src = `${catCard.catUrl}`;
 
   profileImgDiv.append(profileImg);
   rightInfo.append(profileImgDiv);
@@ -85,30 +86,48 @@ function createcatCard(catName, job, personality, power, catUrl) {
 //document.getElementByIdでID"profiles"を受け取り、新規に作った変数profileDivに入れる。
 const profileDiv = document.getElementById("profiles");
 
-let cat1 = createcatCard(
-  "マロンさん",
+class Cat {
+  constructor(firstName, lastName, job, personality, power, catUrl) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.job = job;
+    this.personality = personality;
+    this.power = power;
+    this.catUrl = catUrl;
+  }
+
+  getFullName() {
+    return this.lastName + " " + this.firstName + " さん";
+  }
+}
+
+let cat1 = new Cat(
+  "マロン",
+  "栗川",
   "たべる",
   "こまかいことをきにしない",
   "5500mw",
   "https://user-images.githubusercontent.com/91357435/149614989-605102aa-4ed5-4f59-93ba-de9b09bddbd3.jpg"
 );
 
-let cat2 = createcatCard(
-  "モカさん",
+let cat2 = new Cat(
+  "モカ",
+  "紅林",
   "かくれる",
   "おどろきやすい",
   "6000mw",
   "https://user-images.githubusercontent.com/91357435/149615024-982646e4-abf5-4786-a5c0-c6ceae07d2a9.jpg"
 );
 
-let cat3 = createcatCard(
-  "モリさん",
+let cat3 = new Cat(
+  "おかめ",
+  "錆島",
   "へんなかお",
   "ひとのそばにいるのがすき",
   "3000mw ",
   "https://user-images.githubusercontent.com/91357435/149615028-5fef919f-51ae-44d1-b1d1-47e39d2e0e1f.jpg"
 );
 
-profileDiv.append(cat1);
-profileDiv.append(cat2);
-profileDiv.append(cat3);
+profileDiv.append(createcatCard(cat1));
+profileDiv.append(createcatCard(cat2));
+profileDiv.append(createcatCard(cat3));
